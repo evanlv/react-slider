@@ -1,11 +1,12 @@
-import './App.css';
+import "./App.css";
+import Slider from "./Components/Slider/Slider";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-
+      <Slider />
     </div>
   );
-}
+};
 
 export default App;
