@@ -57,6 +57,9 @@ const Slider = () => {
       }, 400);
     }
   };
+  const moveDot = (index) => {
+    setSlideAnimation({ index: index, inProgress: false });
+  };
   return (
     <div className="container-slider">
       {dataSlider.map((item, index) => {
@@ -73,6 +76,20 @@ const Slider = () => {
       })}
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
       <BtnSlider moveSlide={previousSlide} direction={"previous"} />
+
+      <div className="container-dots">
+        {dataSlider.map((item, index) => {
+          return (
+            <button
+              key={item.id}
+              className={
+                slideAnimation.index === index + 1 ? " dot active" : "dot"
+              }
+              onClick={() => moveDot(index + 1)}
+            ></button>
+          );
+        })}
+      </div>
     </div>
   );
 };
